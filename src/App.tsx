@@ -1,12 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import "./App.css";
 import { Card } from "./components/card/Card.component";
+import Pagination from "./components/pagination/pagination.component";
+
+let PageSize = 10;
 
 function App() {
   interface allProductsDataInterface {
     [index: string]: number | string | object[];
     total: number;
   }
+
+  const [currentPage, setCurrentPage] = useState(1);
 
   const [allProductsData, setAllProductsData] =
     useState<allProductsDataInterface>();
@@ -26,7 +31,13 @@ function App() {
 
   console.log(allProductsData);
 
-  const productData = dataArray?.map((product: any) => (
+  const currentTableData = useMemo(() => {
+    const firstPageIndex = (currentPage - 1) * PageSize;
+    const lastPageIndex = firstPageIndex + PageSize;
+    return dataArray?.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage]);
+
+  const productData = currentTableData?.map((product: any) => (
     <Card
       className={"card card" + product.id}
       key={product.id}
@@ -36,17 +47,26 @@ function App() {
 
   return (
     <div className="App">
-      <div className="pagination">
-        <a href="#">&laquo;</a>
-        <a href="#">1</a>
-        <a href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">5</a>
-        <a href="#">6</a>
-        <a href="#">&raquo;</a>
+      <div className="pagination-centering">
+        <Pagination
+          className="pagination-bar"
+          currentPage={currentPage}
+          totalCount={dataArray?.length}
+          pageSize={PageSize}
+          onPageChange={(page: any) => setCurrentPage(page)}
+        />
       </div>
+
       <div>{productData}</div>
+      <div className="pagination-centering">
+        <Pagination
+          className="pagination-bar"
+          currentPage={currentPage}
+          totalCount={dataArray?.length}
+          pageSize={PageSize}
+          onPageChange={(page: any) => setCurrentPage(page)}
+        />
+      </div>
     </div>
   );
 }

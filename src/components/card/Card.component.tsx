@@ -10,9 +10,9 @@ export const Card = (props: Props): JSX.Element => {
   return (
     <div className={props.className}>
       <h2> {productInfo.title}</h2>
-      <LazyLoad>
-        <img src={productInfo.images[0]} alt={productInfo.title} />
-      </LazyLoad>
+
+      <img src={productInfo.images[0]} alt={productInfo.title} />
+
       <p>{productInfo.description}</p>
     </div>
   );
