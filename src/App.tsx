@@ -21,9 +21,9 @@ function App() {
       );
   }, []);
 
-  console.log(allProductsData);
-
   const dataArray: any = allProductsData?.products;
+
+  console.log(dataArray);
 
   const productData = dataArray?.map((product: any) => (
     <Card
