@@ -9,9 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "classnames": "^2.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-lazy-load": "^4.0.1",
+    "react-paginate": "^8.1.4",
     "reset-css": "^5.0.1",
     "the-new-css-reset": "^1.8.4"
   },

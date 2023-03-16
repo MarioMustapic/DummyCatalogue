@@ -5,6 +5,7 @@ import { Card } from "./components/card/Card.component";
 function App() {
   interface allProductsDataInterface {
     [index: string]: number | string | object[];
+    total: number;
   }
 
   const [allProductsData, setAllProductsData] =
@@ -23,7 +24,7 @@ function App() {
 
   const dataArray: any = allProductsData?.products;
 
-  console.log(dataArray);
+  console.log(allProductsData);
 
   const productData = dataArray?.map((product: any) => (
     <Card
@@ -35,7 +36,6 @@ function App() {
 
   return (
     <div className="App">
-      <div>{productData}</div>
       <div className="pagination">
         <a href="#">&laquo;</a>
         <a href="#">1</a>
@@ -46,6 +46,7 @@ function App() {
         <a href="#">6</a>
         <a href="#">&raquo;</a>
       </div>
+      <div>{productData}</div>
     </div>
   );
 }
