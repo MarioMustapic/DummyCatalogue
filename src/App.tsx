@@ -19,7 +19,6 @@ function App() {
   useEffect(() => {
     fetch("https://dummyjson.com/products/?limit=0")
       .then((res) => res.json())
-      // .then(console.log);
       .then((data) =>
         setAllProductsData(() => ({
           ...data,
@@ -44,7 +43,7 @@ function App() {
       cardData={product}
     />
   ));
-  // const displayProductDetails = () => {};
+
   return (
     <div className="App">
       <div className="pagination-centering">
@@ -54,7 +53,6 @@ function App() {
           totalCount={dataArray?.length}
           pageSize={PageSize}
           onPageChange={(page: any) => setCurrentPage(page)}
-          // onDisplayProductDetails{displayProductDetails}
         />
       </div>
 

@@ -12,6 +12,9 @@ img {
   border-radius: 25px;
   box-shadow: 5px 5px 10px #999;
 }
+.main-img {
+  max-block-size: 40vh;
+}
 button {
   font-size: 2em;
   font-weight: bold;
@@ -23,9 +26,7 @@ button {
 }
 .card {
   border-radius: 2vw;
-  height: auto;
   width: 95vw;
-  overflow: auto;
   margin: 2em;
   padding: 2em;
   background-color: #eee;
@@ -34,5 +35,5 @@ button {
 .details {
   text-align: left;
   font-weight: 500;
-  margin: 5px;
+  margin: 1vw 10vw;
 }
