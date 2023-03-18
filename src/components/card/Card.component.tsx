@@ -18,6 +18,9 @@ export const Card = (props: Props): JSX.Element => {
     e.preventDefault();
     setDetails(false);
   };
+  const styleList = {};
+  const styleDetails = {};
+
   return (
     <div className={props.className}>
       <h2> {list && productInfo.title}</h2>
@@ -28,14 +31,14 @@ export const Card = (props: Props): JSX.Element => {
         onClick={handleClick}
       />
 
-      <p onClick={handleClick} className="description">
+      <h3 onClick={handleClick} className="description ">
         {list && productInfo.description}{" "}
-      </p>
+      </h3>
       <p className="details">{details && `Brand: ${productInfo.brand}`}</p>
       <p className="details">
         {details && `Category: ${productInfo.category}`}
       </p>
-      <p className="details">{details && `Price: ${productInfo.price}`}</p>
+      <p className="details">{details && `Price: ${productInfo.price} €`}</p>
       <p className="details">{details && `Rating: ${productInfo.rating}`}</p>
       <p className="details">{details && `Stock: ${productInfo.stock}`}</p>
       <button onClick={handleGoBack}>{details && "GO BACK"}</button>

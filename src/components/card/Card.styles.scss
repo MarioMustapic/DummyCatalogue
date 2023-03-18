@@ -1,6 +1,25 @@
 h2 {
+  font-size: 1.6em;
   font-weight: bold;
   text-transform: uppercase;
+}
+h3 {
+  font-size: 1.3em;
+  font-weight: 500;
+}
+img {
+  margin: 15px;
+  border-radius: 25px;
+  box-shadow: 5px 5px 10px #999;
+}
+button {
+  font-size: 2em;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 5px 15px;
+  border-radius: 2vw;
+  border: 3px solid #777;
+  box-shadow: 5px 5px 10px #999;
 }
 .card {
   border-radius: 2vw;
@@ -14,4 +33,6 @@ h2 {
 }
 .details {
   text-align: left;
+  font-weight: 500;
+  margin: 5px;
 }
