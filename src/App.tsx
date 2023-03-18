@@ -44,7 +44,7 @@ function App() {
       cardData={product}
     />
   ));
-
+  // const displayProductDetails = () => {};
   return (
     <div className="App">
       <div className="pagination-centering">
@@ -54,6 +54,7 @@ function App() {
           totalCount={dataArray?.length}
           pageSize={PageSize}
           onPageChange={(page: any) => setCurrentPage(page)}
+          // onDisplayProductDetails{displayProductDetails}
         />
       </div>
 
