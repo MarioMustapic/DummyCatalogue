@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import { Card } from "./components/card/Card.component";
 import Pagination from "./components/pagination/pagination.component";
@@ -12,34 +12,22 @@ function App() {
   }
 
   const [currentPage, setCurrentPage] = useState(1);
-
-  const [allProductsData, setAllProductsData] =
-    useState<allProductsDataInterface>();
+  const [dataArray, setDataArray] = useState<any[]>([]);
 
   useEffect(() => {
     fetch("https://dummyjson.com/products/?limit=0")
       .then((res) => res.json())
-      .then((data) =>
-        setAllProductsData(() => ({
-          ...data,
-        }))
-      );
+      .then((data) => setDataArray(() => data.products));
   }, []);
 
-  const dataArray: any = allProductsData?.products;
+  const firstPageIndex = (currentPage - 1) * PageSize;
+  const lastPageIndex = firstPageIndex + PageSize;
+  const currentTableData = dataArray?.slice(firstPageIndex, lastPageIndex);
 
-  console.log(allProductsData);
-
-  const currentTableData = useMemo(() => {
-    const firstPageIndex = (currentPage - 1) * PageSize;
-    const lastPageIndex = firstPageIndex + PageSize;
-    return dataArray?.slice(firstPageIndex, lastPageIndex);
-  }, [currentPage]);
-
-  const productData = currentTableData?.map((product: any) => (
+  const productData = currentTableData?.map((product: any, index: number) => (
     <Card
       className={"card card" + product.id}
-      key={product.id}
+      key={`${product.id}-${index}-${currentPage}`}
       cardData={product}
     />
   ));

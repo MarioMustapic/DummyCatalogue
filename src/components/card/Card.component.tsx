@@ -17,7 +17,6 @@ export const Card = (props: Props): JSX.Element => {
     display: "none",
   });
   const productInfo = props.cardData;
-  // console.log(productInfo.title);
 
   const handleClick = (e: any) => {
     e.preventDefault();
