@@ -41,11 +41,11 @@ Build the project for production.
 
 ## Features
 
-- [x] Section with a list of products (with pagination, 10 products per page)
-      ⦁ Fetch products data from “DummyJSON” API and use the data for display
+- [x] Section with a list of products (with pagination, 10 products per page)<br>
+      ⦁ Fetch products data from “DummyJSON” API and use the data for display<br>
       ⦁ User should be able to click the image/title to go to the product details section
 
-- [x] Section with product details
-      ⦁ Display all the relevant data for the selected product
-      ⦁ Same as with the product list, use the “DummyJSON” API to fetch the data
+- [x] Section with product details<br>
+      ⦁ Display all the relevant data for the selected product<br>
+      ⦁ Same as with the product list, use the “DummyJSON” API to fetch the data<br>
       ⦁ Navigation button below the product details to go back to the product listing
