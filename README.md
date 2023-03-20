@@ -1,6 +1,6 @@
-# Weather app.
+# DummyCatalogue.
 
-Project is made as test in React and TS.
+Project is made in React and TS, as test of catalogue, using DummyJSON API : https://dummyjson.com/
 
 ---
 
@@ -27,13 +27,13 @@ Project is made as test in React and TS.
 
 1. Clone this repository
 2. Run `npm install`
-3. Run `npm start`
+3. Run `npm run dev`
 
 ## Scripts
 
-### `npm run start`
+### `npm run dev`
 
-Start the development environment.
+Start the development environment, then press "o" to see it locally, in you browser
 
 ### `npm run build`
 
@@ -41,6 +41,11 @@ Build the project for production.
 
 ## Features
 
-- [x]
-- [x]
-- [x]
+- [x] Section with a list of products (with pagination, 10 products per page)
+      ⦁ Fetch products data from “DummyJSON” API and use the data for display
+      ⦁ User should be able to click the image/title to go to the product details section
+
+- [x] Section with product details
+      ⦁ Display all the relevant data for the selected product
+      ⦁ Same as with the product list, use the “DummyJSON” API to fetch the data
+      ⦁ Navigation button below the product details to go back to the product listing
