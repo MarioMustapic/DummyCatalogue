@@ -7,6 +7,7 @@ function App() {
   const [dataArray, setDataArray] = useState<any[]>([]);
   const [showDetails, setShowDetails] = useState(false);
   const [detailsData, setDetailsData] = useState({});
+  const [focusOnCard, setFocusOnCard] = useState({ page: 1, id: 1 });
 
   useEffect(() => {
     fetch("https://dummyjson.com/products/?limit=0")
@@ -24,7 +25,9 @@ function App() {
       ) : (
         <ListPage
           dataArray={dataArray}
+          focusOnCard={focusOnCard}
           setShowDetails={setShowDetails}
+          setFocusOnCard={setFocusOnCard}
           setDetailsData={setDetailsData}
         />
       )}

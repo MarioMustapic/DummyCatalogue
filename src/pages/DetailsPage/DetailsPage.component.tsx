@@ -7,7 +7,6 @@ export const DetailsPage = (props: any): JSX.Element => {
     e.preventDefault();
     props.setShowDetails(false);
   };
-  console.log(productInfo);
 
   return (
     <div className="details-page">
