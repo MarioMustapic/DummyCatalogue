@@ -1,39 +1,47 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, SyntheticEvent } from "react";
 import "./Card.styles.scss";
 
-type Props = { [index: number | string]: number | string | any[] | any };
+type Props = {
+  className: string;
+  productData: any;
+  currentPage: number;
+  focusOnCard: { page: number; id: number };
+  setShowDetails: Function;
+  setDetailsData: Function;
+  setFocusOnCard: Function;
+};
 
 export const Card = (props: Props): JSX.Element => {
   const focusCard = useRef<HTMLImageElement>(null);
-  const handleClick = (e: any) => {
+  const handleClick = (e: SyntheticEvent) => {
     e.preventDefault();
     props.setShowDetails(true);
     props.setDetailsData(() => ({
       ...props,
     }));
-    props.setFocusOnCard({ page: props.currentPage, id: props.cardData.id });
+    props.setFocusOnCard({ page: props.currentPage, id: props.productData.id });
   };
 
   useEffect(() => {
-    if (props.focusOnCard.id === props.cardData.id) {
+    if (props.focusOnCard.id === props.productData.id) {
       focusCard.current?.focus();
     }
   }, []);
 
   return (
     <div className={props.className}>
-      <h2 onClick={handleClick}> {props.cardData?.title}</h2>
+      <h2 onClick={handleClick}> {props.productData?.title}</h2>
 
       <img
         tabIndex={0}
         ref={focusCard}
         className="main-img"
-        src={props.cardData?.images[0]}
-        alt={props.cardData?.title}
+        src={props.productData?.images[0]}
+        alt={props.productData?.title}
         onClick={handleClick}
       />
 
-      <h3 className="description ">{props.cardData?.description}</h3>
+      <h3 className="description ">{props.productData?.description}</h3>
     </div>
   );
 };

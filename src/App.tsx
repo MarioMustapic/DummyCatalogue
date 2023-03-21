@@ -4,7 +4,7 @@ import { ListPage } from "./pages/ListPage/ListPage.component";
 import { DetailsPage } from "./pages/DetailsPage/DetailsPage.component";
 
 function App() {
-  const [dataArray, setDataArray] = useState<any[]>([]);
+  const [dataArray, setDataArray] = useState<object[]>([]);
   const [showDetails, setShowDetails] = useState(false);
   const [detailsData, setDetailsData] = useState({});
   const [focusOnCard, setFocusOnCard] = useState({ page: 1, id: 1 });

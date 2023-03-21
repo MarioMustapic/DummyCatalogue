@@ -3,9 +3,17 @@ import { useState } from "react";
 import { Card } from "../../components/card/Card.component";
 import Pagination from "../../components/pagination/pagination.component";
 
+type Props = {
+  dataArray: object[];
+  focusOnCard: { page: number; id: number };
+  setShowDetails: Function;
+  setDetailsData: Function;
+  setFocusOnCard: Function;
+};
+
 let PageSize = 10;
 
-export const ListPage = (props: any): JSX.Element => {
+export const ListPage = (props: Props): JSX.Element => {
   const [currentPage, setCurrentPage] = useState(props.focusOnCard.page);
 
   const firstPageIndex = (currentPage - 1) * PageSize;
@@ -19,7 +27,7 @@ export const ListPage = (props: any): JSX.Element => {
     <Card
       className={"card card" + product.id}
       key={`${product.id}-${index}-${currentPage}`}
-      cardData={product}
+      productData={product}
       focusOnCard={props.focusOnCard}
       setShowDetails={props.setShowDetails}
       setDetailsData={props.setDetailsData}
@@ -36,7 +44,7 @@ export const ListPage = (props: any): JSX.Element => {
           currentPage={currentPage}
           totalCount={props.dataArray?.length}
           pageSize={PageSize}
-          onPageChange={(page: any) => setCurrentPage(page)}
+          onPageChange={(page: number) => setCurrentPage(page)}
         />
       </div>
 
@@ -47,7 +55,7 @@ export const ListPage = (props: any): JSX.Element => {
           currentPage={currentPage}
           totalCount={props.dataArray?.length}
           pageSize={PageSize}
-          onPageChange={(page: any) => setCurrentPage(page)}
+          onPageChange={(page: number) => setCurrentPage(page)}
         />
       </div>
     </div>
