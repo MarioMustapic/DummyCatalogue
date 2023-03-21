@@ -15,25 +15,16 @@ img {
 .main-img {
   max-block-size: 40vh;
 }
-button {
-  font-size: 2em;
-  font-weight: bold;
-  text-transform: uppercase;
-  padding: 5px 15px;
-  border-radius: 2vw;
-  border: 3px solid #777;
-  box-shadow: 5px 5px 10px #999;
-}
+
 .card {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   border-radius: 2vw;
-  width: 95vw;
+  width: 500px;
   margin: 2em;
   padding: 2em;
   background-color: #eee;
   text-align: center;
-}
-.details {
-  text-align: left;
-  font-weight: 500;
-  margin: 1vw 10vw;
 }

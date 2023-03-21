@@ -6,3 +6,10 @@
   display: inline-block;
   text-align: center;
 }
+.list {
+  width: 95vw;
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}

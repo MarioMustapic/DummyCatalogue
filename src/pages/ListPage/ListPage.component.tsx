@@ -40,7 +40,7 @@ export const ListPage = (props: any): JSX.Element => {
         />
       </div>
 
-      <div>{productData}</div>
+      <div className="list">{productData}</div>
       <div className="pagination-centering">
         <Pagination
           className="pagination-bar"
