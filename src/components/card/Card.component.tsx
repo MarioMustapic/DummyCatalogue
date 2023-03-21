@@ -17,7 +17,6 @@ export const Card = (props: Props): JSX.Element => {
   useEffect(() => {
     if (props.focusOnCard.id === props.cardData.id) {
       focusCard.current?.focus();
-      console.log(props);
     }
   }, []);
 
