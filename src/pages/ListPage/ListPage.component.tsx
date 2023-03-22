@@ -22,19 +22,25 @@ export const ListPage = (props: Props): JSX.Element => {
     firstPageIndex,
     lastPageIndex
   );
+  console.log(currentTableData);
 
-  const productData = currentTableData?.map((product: any, index: number) => (
-    <Card
-      className={"card card" + product.id}
-      key={`${product.id}-${index}-${currentPage}`}
-      productData={product}
-      focusOnCard={props.focusOnCard}
-      setShowDetails={props.setShowDetails}
-      setDetailsData={props.setDetailsData}
-      setFocusOnCard={props.setFocusOnCard}
-      currentPage={currentPage}
-    />
-  ));
+  const productData = currentTableData?.map(
+    (
+      product: { [index: string]: number | string | string[] | any },
+      index: number
+    ) => (
+      <Card
+        className={"card card" + product.id}
+        key={`${product.id}-${index}-${currentPage}`}
+        productData={product}
+        focusOnCard={props.focusOnCard}
+        setShowDetails={props.setShowDetails}
+        setDetailsData={props.setDetailsData}
+        setFocusOnCard={props.setFocusOnCard}
+        currentPage={currentPage}
+      />
+    )
+  );
 
   return (
     <div className="list-page">

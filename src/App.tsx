@@ -3,10 +3,17 @@ import "./App.css";
 import { ListPage } from "./pages/ListPage/ListPage.component";
 import { DetailsPage } from "./pages/DetailsPage/DetailsPage.component";
 
+type detailsData = {
+  [index: string]: {
+    [index: string]: string | string[];
+    images: string[];
+  };
+};
+
 function App() {
   const [dataArray, setDataArray] = useState<object[]>([]);
   const [showDetails, setShowDetails] = useState(false);
-  const [detailsData, setDetailsData] = useState({});
+  const [detailsData, setDetailsData] = useState<detailsData>();
   const [focusOnCard, setFocusOnCard] = useState({ page: 1, id: 1 });
 
   useEffect(() => {

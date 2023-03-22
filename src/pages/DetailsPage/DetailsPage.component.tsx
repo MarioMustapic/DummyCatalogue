@@ -1,7 +1,18 @@
 import { Details } from "../../components/productDetails/ProductDetails.component";
 import "./DetailsPage.styles.scss";
 
-export const DetailsPage = (props: any): JSX.Element => {
+type Props = {
+  detailsData: {
+    [index: string]: {
+      [index: string]: string | string[];
+      images: string[];
+      title: string;
+    };
+  };
+  setShowDetails: Function;
+};
+
+export const DetailsPage = (props: Props): JSX.Element => {
   return (
     <div className="details-page">
       <Details

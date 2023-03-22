@@ -1,8 +1,23 @@
 import "./ProductDetails.styles.scss";
 import { useState } from "react";
 
-export const Details = (props: any): JSX.Element => {
+type Props = {
+  detailsData: {
+    [index: string]: {
+      [index: string]: string | string[];
+      images: string[];
+      title: string;
+    };
+  };
+
+  setShowDetails: Function;
+};
+
+export const Details = (props: Props): JSX.Element => {
+  console.log(props.detailsData);
+
   const productInfo = props.detailsData;
+  const productImages = props.detailsData.productData.images;
   const [mainImg, setMainImg] = useState(productInfo.productData.images[0]);
 
   const handleGoBack = (e: any) => {
@@ -12,7 +27,7 @@ export const Details = (props: any): JSX.Element => {
   const makeItMainImg = (img: string) => {
     setMainImg(img);
   };
-  const smallImg: JSX.Element = productInfo.productData.images.map(
+  const smallImg: JSX.Element[] = productImages.map(
     (img: string, index: number) => (
       <img
         className="small-img details"
