@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
-import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HomePage } from "./pages/HomePage/HomePage.component";
 import { ListPage } from "./pages/ListPage/ListPage.component";
 import { DetailsPage } from "./pages/DetailsPage/DetailsPage.component";
+import "./App.css";
 
 type detailsData = {
   [index: string]: {
@@ -23,22 +25,33 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      {showDetails ? (
-        <DetailsPage
-          detailsData={detailsData}
-          setShowDetails={setShowDetails}
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route
+          path="/products"
+          element={
+            <ListPage
+              dataArray={dataArray}
+              focusOnCard={focusOnCard}
+              setShowDetails={setShowDetails}
+              setFocusOnCard={setFocusOnCard}
+              setDetailsData={setDetailsData}
+            />
+          }
         />
-      ) : (
-        <ListPage
-          dataArray={dataArray}
-          focusOnCard={focusOnCard}
-          setShowDetails={setShowDetails}
-          setFocusOnCard={setFocusOnCard}
-          setDetailsData={setDetailsData}
+        <Route
+          path="/products/:id"
+          element={
+            <DetailsPage
+              detailsData={detailsData}
+              setShowDetails={setShowDetails}
+            />
+          }
         />
-      )}
-    </div>
+        {/* <Route element={NotFoundPage} /> */}
+      </Routes>
+    </BrowserRouter>
   );
 }
 

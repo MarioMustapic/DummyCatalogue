@@ -1,5 +1,6 @@
 import "./ProductDetails.styles.scss";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 type Props = {
   detailsData: {
@@ -64,7 +65,11 @@ export const Details = (props: Props): JSX.Element => {
       <p className="details text">Rating: {productInfo.productData.rating}</p>
       <p className="details text">Stock: {productInfo.productData.stock}</p>
 
-      <button onClick={handleGoBack}>GO BACK</button>
+      <Link to="/products">
+        <div className="button" onClick={handleGoBack}>
+          GO BACK
+        </div>
+      </Link>
     </div>
   );
 };

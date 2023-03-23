@@ -22,7 +22,6 @@ export const ListPage = (props: Props): JSX.Element => {
     firstPageIndex,
     lastPageIndex
   );
-  console.log(currentTableData);
 
   const productData = currentTableData?.map(
     (
