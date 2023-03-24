@@ -25,33 +25,31 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route
-          path="/products"
-          element={
-            <ListPage
-              dataArray={dataArray}
-              focusOnCard={focusOnCard}
-              setShowDetails={setShowDetails}
-              setFocusOnCard={setFocusOnCard}
-              setDetailsData={setDetailsData}
-            />
-          }
-        />
-        <Route
-          path="/products/:id"
-          element={
-            <DetailsPage
-              detailsData={detailsData}
-              setShowDetails={setShowDetails}
-            />
-          }
-        />
-        {/* <Route element={NotFoundPage} /> */}
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route
+        path="/products"
+        element={
+          <ListPage
+            dataArray={dataArray}
+            focusOnCard={focusOnCard}
+            setShowDetails={setShowDetails}
+            setFocusOnCard={setFocusOnCard}
+            setDetailsData={setDetailsData}
+          />
+        }
+      />
+      <Route
+        path="/products/:id"
+        element={
+          <DetailsPage
+            detailsData={detailsData}
+            setShowDetails={setShowDetails}
+          />
+        }
+      />
+      {/* <Route element={NotFoundPage} /> */}
+    </Routes>
   );
 }
 

@@ -1,8 +1,9 @@
 import "./ProductDetails.styles.scss";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 type Props = {
+  dataArray: object[];
   detailsData: {
     [index: string]: {
       [index: string]: string | string[];
@@ -15,16 +16,11 @@ type Props = {
 };
 
 export const Details = (props: Props): JSX.Element => {
-  console.log(props.detailsData);
+  const location = useLocation();
+  const productInfo = location.state.cardData;
+  const productImages = location.state.cardData.images;
+  const [mainImg, setMainImg] = useState(productInfo.images[0]);
 
-  const productInfo = props.detailsData;
-  const productImages = props.detailsData.productData.images;
-  const [mainImg, setMainImg] = useState(productInfo.productData.images[0]);
-
-  const handleGoBack = (e: any) => {
-    e.preventDefault();
-    props.setShowDetails(false);
-  };
   const makeItMainImg = (img: string) => {
     setMainImg(img);
   };
@@ -34,7 +30,7 @@ export const Details = (props: Props): JSX.Element => {
         className="small-img details"
         key={index}
         src={img}
-        alt={`${productInfo.productData.title} image ${index}`}
+        alt={`${productInfo.title} image ${index}`}
         onClick={() => makeItMainImg(img)}
       />
     )
@@ -42,33 +38,27 @@ export const Details = (props: Props): JSX.Element => {
 
   return (
     <div className="details">
-      <h2 className="details h2"> {productInfo.productData.title}</h2>
+      <h2 className="details h2"> {productInfo.title}</h2>
 
       <div className="img details">
         <img
           className="main-img details"
           src={mainImg}
-          alt={productInfo.productData.title}
+          alt={productInfo.title}
         />
         <div> {smallImg}</div>
       </div>
 
-      <h3 className="description details">
-        {productInfo.productData.description}
-      </h3>
+      <h3 className="description details">{productInfo.description}</h3>
 
-      <p className="details text">Brand: {productInfo.productData.brand}</p>
-      <p className="details text">
-        Category: {productInfo.productData.category}
-      </p>
-      <p className="details text">Price: {productInfo.productData.price} €</p>
-      <p className="details text">Rating: {productInfo.productData.rating}</p>
-      <p className="details text">Stock: {productInfo.productData.stock}</p>
+      <p className="details text">Brand: {productInfo.brand}</p>
+      <p className="details text">Category: {productInfo.category}</p>
+      <p className="details text">Price: {productInfo.price} €</p>
+      <p className="details text">Rating: {productInfo.rating}</p>
+      <p className="details text">Stock: {productInfo.stock}</p>
 
       <Link to="/products">
-        <div className="button" onClick={handleGoBack}>
-          GO BACK
-        </div>
+        <div className="button">GO BACK</div>
       </Link>
     </div>
   );

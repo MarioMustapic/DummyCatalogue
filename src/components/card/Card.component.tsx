@@ -1,4 +1,4 @@
-import { useRef, useEffect, SyntheticEvent } from "react";
+import { useRef, useEffect, SyntheticEvent, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Card.styles.scss";
 
@@ -14,14 +14,6 @@ type Props = {
 
 export const Card = (props: Props): JSX.Element => {
   const focusCard = useRef<HTMLImageElement>(null);
-  const handleClick = (e: SyntheticEvent) => {
-    e.preventDefault();
-    props.setShowDetails(true);
-    props.setDetailsData(() => ({
-      ...props,
-    }));
-    props.setFocusOnCard({ page: props.currentPage, id: props.productData.id });
-  };
 
   useEffect(() => {
     if (props.focusOnCard.id === props.productData.id) {
@@ -31,18 +23,17 @@ export const Card = (props: Props): JSX.Element => {
 
   return (
     <div className={props.className}>
-      <Link to="/products/:id">
-        <h2 onClick={handleClick}> {props.productData?.title}</h2>
+      <Link to={"/products/:id"} state={{ cardData: props.productData }}>
+        <h2> {props.productData?.title}</h2>
       </Link>
 
-      <Link to="/products/:id">
+      <Link to={"/products/:id"} state={{ cardData: props.productData }}>
         <img
           tabIndex={0}
           ref={focusCard}
           className="main-img"
           src={props.productData?.images[0]}
           alt={props.productData?.title}
-          onClick={handleClick}
         />
       </Link>
 

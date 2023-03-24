@@ -2,6 +2,7 @@ import { Details } from "../../components/productDetails/ProductDetails.componen
 import "./DetailsPage.styles.scss";
 
 type Props = {
+  dataArray: object[];
   detailsData: {
     [index: string]: {
       [index: string]: string | string[];
@@ -16,6 +17,7 @@ export const DetailsPage = (props: Props): JSX.Element => {
   return (
     <div className="details-page">
       <Details
+        dataArray={props.dataArray}
         detailsData={props.detailsData}
         setShowDetails={props.setShowDetails}
       />
