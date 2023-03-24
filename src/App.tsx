@@ -15,7 +15,7 @@ type detailsData = {
 function App() {
   const [dataArray, setDataArray] = useState<object[]>([]);
   const [showDetails, setShowDetails] = useState(false);
-  const [detailsData, setDetailsData] = useState<detailsData>();
+  const [detailsData, setDetailsData] = useState<any>();
   const [focusOnCard, setFocusOnCard] = useState({ page: 1, id: 1 });
 
   useEffect(() => {

@@ -3,7 +3,6 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 type Props = {
-  dataArray: object[];
   detailsData: {
     [index: string]: {
       [index: string]: string | string[];
