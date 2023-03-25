@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { HomePage } from "./pages/HomePage/HomePage.component";
 import { ListPage } from "./pages/ListPage/ListPage.component";
 import { DetailsPage } from "./pages/DetailsPage/DetailsPage.component";

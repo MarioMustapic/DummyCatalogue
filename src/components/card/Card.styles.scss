@@ -1,19 +1,18 @@
 h2 {
-  font-size: 1.6em;
+  font-size: clamp(1.3em, 2vh, 1.6em);
   font-weight: bold;
   text-transform: uppercase;
 }
 h3 {
-  font-size: 1.3em;
+  font-size: clamp(0.9em, 1.5vh, 1.2em);
   font-weight: 500;
 }
 img {
-  margin: 15px;
-  border-radius: 25px;
+  border-radius: min(10px, 1.5vh);
   box-shadow: 5px 5px 10px #999;
 }
 .main-img {
-  max-block-size: 40vh;
+  max-block-size: 25vh;
 }
 
 .card {
@@ -21,10 +20,18 @@ img {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  border-radius: 2vw;
-  width: 500px;
-  margin: 2em;
-  padding: 2em;
+  border-radius: min(10px, 1.5vh);
+  width: clamp(200px, 20vw, 500px);
+  margin: 1em;
+  padding: 1em;
   background-color: #eee;
   text-align: center;
+}
+a {
+  transform: scale(1);
+  transition: 0.2s ease-in-out;
+}
+a:hover {
+  text-decoration: underline;
+  transform: scale(1.05);
 }

@@ -57,7 +57,7 @@ export const Details = (props: Props): JSX.Element => {
       <p className="details text">Stock: {productInfo.stock}</p>
 
       <Link to="/products">
-        <div className="button">GO BACK</div>
+        <button className="button">GO BACK</button>
       </Link>
     </div>
   );

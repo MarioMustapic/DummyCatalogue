@@ -5,15 +5,7 @@
   text-transform: uppercase;
   margin: 1vh 20vw 1vh 8vw;
 }
-.button {
-  font-size: 2em;
-  font-weight: bold;
-  text-transform: uppercase;
-  padding: 5px 15px;
-  border-radius: 2vw;
-  border: 3px solid #777;
-  box-shadow: 5px 5px 10px #999;
-}
+
 .details {
   text-align: left;
   font-weight: 500;
@@ -36,4 +28,22 @@
   border-radius: 0.5vh;
   height: 15vh;
   margin: 2vh;
+}
+.button {
+  cursor: pointer;
+  font-size: 2em;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  padding: 5px 15px;
+  border-radius: 2vw;
+  background-color: #ddd;
+}
+button {
+  position: fixed;
+  bottom: 0px;
+}
+button:hover {
+  box-shadow: inset 200px 0 0 0 #444;
+  color: white;
 }

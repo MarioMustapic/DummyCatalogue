@@ -1,5 +1,5 @@
 import { useRef, useEffect, SyntheticEvent, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./Card.styles.scss";
 
 type Props = {
@@ -14,6 +14,8 @@ type Props = {
 
 export const Card = (props: Props): JSX.Element => {
   const focusCard = useRef<HTMLImageElement>(null);
+  const { id } = useParams();
+  console.log(id);
 
   useEffect(() => {
     if (props.focusOnCard.id === props.productData.id) {
