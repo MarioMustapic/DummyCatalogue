@@ -4,7 +4,6 @@ import { Link, useParams } from "react-router-dom";
 
 type Props = {
   dataArray: any;
-  setShowDetails: Function;
 };
 
 type ProductInfo = {
