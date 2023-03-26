@@ -27,11 +27,11 @@ img {
   background-color: #eee;
   text-align: center;
 }
-a {
+.link {
   transform: scale(1);
   transition: 0.2s ease-in-out;
 }
-a:hover {
+.link:hover {
   text-decoration: underline;
   transform: scale(1.05);
 }

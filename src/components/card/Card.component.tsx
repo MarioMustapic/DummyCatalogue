@@ -26,6 +26,7 @@ export const Card = (props: Props): JSX.Element => {
   return (
     <div className={props.className}>
       <Link
+        className="link"
         to={`/products/${props.productData.id}`}
         state={{ page: { page: props.currentPage } }}
       >
@@ -33,6 +34,7 @@ export const Card = (props: Props): JSX.Element => {
       </Link>
 
       <Link
+        className="link"
         to={`/products/${props.productData.id}`}
         state={{ page: { page: props.currentPage } }}
       >
