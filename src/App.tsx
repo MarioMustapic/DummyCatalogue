@@ -42,10 +42,7 @@ function App() {
       <Route
         path="/products/:id"
         element={
-          <DetailsPage
-            detailsData={detailsData}
-            setShowDetails={setShowDetails}
-          />
+          <DetailsPage dataArray={dataArray} setShowDetails={setShowDetails} />
         }
       />
       {/* <Route element={NotFoundPage} /> */}

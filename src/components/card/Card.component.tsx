@@ -1,5 +1,5 @@
-import { useRef, useEffect, SyntheticEvent, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./Card.styles.scss";
 
 type Props = {
@@ -14,8 +14,6 @@ type Props = {
 
 export const Card = (props: Props): JSX.Element => {
   const focusCard = useRef<HTMLImageElement>(null);
-  const { id } = useParams();
-  console.log(id);
 
   useEffect(() => {
     if (props.focusOnCard.id === props.productData.id) {
@@ -25,11 +23,11 @@ export const Card = (props: Props): JSX.Element => {
 
   return (
     <div className={props.className}>
-      <Link to={"/products/:id"} state={{ cardData: props.productData }}>
+      <Link to={`/products/${props.productData.id}`}>
         <h2> {props.productData?.title}</h2>
       </Link>
 
-      <Link to={"/products/:id"} state={{ cardData: props.productData }}>
+      <Link to={`/products/${props.productData.id}`}>
         <img
           tabIndex={0}
           ref={focusCard}
