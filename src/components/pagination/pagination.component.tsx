@@ -25,10 +25,12 @@ const Pagination = (props: any) => {
 
   const onNext = () => {
     onPageChange(currentPage + 1);
+    window.scrollTo(0, 0);
   };
 
   const onPrevious = () => {
     onPageChange(currentPage - 1);
+    window.scrollTo(0, 0);
   };
 
   let lastPage = paginationRange[paginationRange.length - 1];
@@ -60,7 +62,10 @@ const Pagination = (props: any) => {
               selected: pageNumber === currentPage,
             })}
             key={pageNumber}
-            onClick={() => onPageChange(pageNumber)}
+            onClick={() => {
+              onPageChange(pageNumber);
+              window.scrollTo(0, 0);
+            }}
           >
             {pageNumber}
           </li>

@@ -1,6 +1,6 @@
 import "./ProductDetails.styles.scss";
-import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useLocation, useParams } from "react-router-dom";
 
 type Props = {
   dataArray: any;
@@ -17,9 +17,14 @@ type ProductInfo = {
 };
 
 export const Details = (props: Props): JSX.Element => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const idString = useParams();
   let id = Number(idString.id);
-  console.log(idString.id, id);
+
+  let page = useLocation()?.state?.page?.page;
 
   const [arrayIndex, setArrayIndex] = useState(id - 1);
   const productInfo: any = props.dataArray?.[arrayIndex];
@@ -62,8 +67,13 @@ export const Details = (props: Props): JSX.Element => {
       <p className="details text">Rating: {productInfo?.rating}</p>
       <p className="details text">Stock: {productInfo?.stock}</p>
 
-      <Link to="/products">
-        <button className="button">GO BACK</button>
+      <Link
+        to="/products"
+        state={{ focusOnCard: { page: page, id: arrayIndex + 1 } }}
+      >
+        <button className="button" tabIndex={0}>
+          GO BACK
+        </button>
       </Link>
     </div>
   );

@@ -23,8 +23,14 @@
 .main-img.details {
   block-size: 60vw;
   margin: 1vh;
+  transform: scale(1);
+  transition: 0.2s ease-in-out;
+}
+.main-img.details:hover {
+  transform: scale(1.5);
 }
 .small-img.details {
+  cursor: zoom-in;
   border-radius: 0.5vh;
   height: 15vh;
   margin: 2vh;
@@ -46,4 +52,7 @@ button {
 button:hover {
   box-shadow: inset 200px 0 0 0 #444;
   color: white;
+}
+button:focus {
+  font-weight: bolder;
 }

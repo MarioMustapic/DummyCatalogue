@@ -1,5 +1,5 @@
 import { useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./Card.styles.scss";
 
 type Props = {
@@ -15,19 +15,27 @@ type Props = {
 export const Card = (props: Props): JSX.Element => {
   const focusCard = useRef<HTMLImageElement>(null);
 
+  const focusProduct = useLocation()?.state?.focusOnCard;
+
   useEffect(() => {
-    if (props.focusOnCard.id === props.productData.id) {
+    if (focusProduct?.id === props.productData.id) {
       focusCard.current?.focus();
     }
   }, []);
 
   return (
     <div className={props.className}>
-      <Link to={`/products/${props.productData.id}`}>
+      <Link
+        to={`/products/${props.productData.id}`}
+        state={{ page: { page: props.currentPage } }}
+      >
         <h2> {props.productData?.title}</h2>
       </Link>
 
-      <Link to={`/products/${props.productData.id}`}>
+      <Link
+        to={`/products/${props.productData.id}`}
+        state={{ page: { page: props.currentPage } }}
+      >
         <img
           tabIndex={0}
           ref={focusCard}

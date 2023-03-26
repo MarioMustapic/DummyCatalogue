@@ -1,7 +1,8 @@
 import "./ListPage.styles.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Card } from "../../components/card/Card.component";
 import Pagination from "../../components/pagination/pagination.component";
+import { useLocation } from "react-router-dom";
 
 type Props = {
   dataArray: object[];
@@ -14,7 +15,12 @@ type Props = {
 let PageSize = 10;
 
 export const ListPage = (props: Props): JSX.Element => {
-  const [currentPage, setCurrentPage] = useState(props.focusOnCard.page);
+  const focusProduct = useLocation().state?.focusOnCard;
+
+  const [currentPage, setCurrentPage] = useState(1);
+  useEffect(() => {
+    if (focusProduct?.page != undefined) setCurrentPage(focusProduct?.page);
+  }, []);
 
   const firstPageIndex = (currentPage - 1) * PageSize;
   const lastPageIndex = firstPageIndex + PageSize;
