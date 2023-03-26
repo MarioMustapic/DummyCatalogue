@@ -18,7 +18,10 @@ type ProductInfo = {
 };
 
 export const Details = (props: Props): JSX.Element => {
-  const { id } = useParams<any>();
+  const idString = useParams();
+  let id = Number(idString.id);
+  console.log(idString.id, id);
+
   const [arrayIndex, setArrayIndex] = useState(id - 1);
   const productInfo: any = props.dataArray?.[arrayIndex];
   const productImages = productInfo?.images;
