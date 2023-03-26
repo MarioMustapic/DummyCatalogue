@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-// import "./HomePage.styles.scss";
+import "./HomePage.styles.scss";
 
 type Props = {};
 
