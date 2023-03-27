@@ -5,17 +5,8 @@ import { ListPage } from "./pages/ListPage/ListPage.component";
 import { DetailsPage } from "./pages/DetailsPage/DetailsPage.component";
 import "./App.css";
 
-type detailsData = {
-  [index: string]: {
-    [index: string]: string | string[];
-    images: string[];
-  };
-};
-
 function App() {
   const [dataArray, setDataArray] = useState<object[]>([]);
-  const [showDetails, setShowDetails] = useState(false);
-  const [detailsData, setDetailsData] = useState<any>();
   const [focusOnCard, setFocusOnCard] = useState({ page: 1, id: 1 });
 
   useEffect(() => {
@@ -29,15 +20,7 @@ function App() {
       <Route path="/" element={<HomePage />} />
       <Route
         path="/products"
-        element={
-          <ListPage
-            dataArray={dataArray}
-            focusOnCard={focusOnCard}
-            setShowDetails={setShowDetails}
-            setFocusOnCard={setFocusOnCard}
-            setDetailsData={setDetailsData}
-          />
-        }
+        element={<ListPage dataArray={dataArray} focusOnCard={focusOnCard} />}
       />
       <Route
         path="/products/:id"

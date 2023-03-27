@@ -3,17 +3,13 @@ import { useState, useEffect } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 
 type Props = {
-  dataArray: any;
-};
-
-type ProductInfo = {
-  productInfo: {
+  dataArray: {
     [index: string]: {
       [index: string]: string | string[];
       images: string[];
       title: string;
     };
-  };
+  }[];
 };
 
 export const Details = (props: Props): JSX.Element => {

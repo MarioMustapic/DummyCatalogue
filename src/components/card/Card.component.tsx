@@ -4,12 +4,9 @@ import "./Card.styles.scss";
 
 type Props = {
   className: string;
-  productData: any;
+  productData: { [index: string]: number | string | string[] | any };
   currentPage: number;
   focusOnCard: { page: number; id: number };
-  setShowDetails: Function;
-  setDetailsData: Function;
-  setFocusOnCard: Function;
 };
 
 export const Card = (props: Props): JSX.Element => {

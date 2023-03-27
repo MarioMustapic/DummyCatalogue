@@ -7,9 +7,6 @@ import { useLocation } from "react-router-dom";
 type Props = {
   dataArray: object[];
   focusOnCard: { page: number; id: number };
-  setShowDetails: Function;
-  setDetailsData: Function;
-  setFocusOnCard: Function;
 };
 
 let PageSize = 10;
@@ -39,9 +36,6 @@ export const ListPage = (props: Props): JSX.Element => {
         key={`${product.id}-${index}-${currentPage}`}
         productData={product}
         focusOnCard={props.focusOnCard}
-        setShowDetails={props.setShowDetails}
-        setDetailsData={props.setDetailsData}
-        setFocusOnCard={props.setFocusOnCard}
         currentPage={currentPage}
       />
     )
