@@ -5,7 +5,6 @@
   text-transform: uppercase;
   margin: 1vh 20vw 1vh 8vw;
 }
-
 .details {
   text-align: left;
   font-weight: 500;
@@ -20,17 +19,22 @@
   font-size: 1.5vw;
   margin: 1vw 10vw;
 }
+.slideshow-container {
+  display: inline-flex;
+  align-items: center;
+}
+.arrow {
+  user-select: none;
+  font-size: 6rem;
+  font-weight: 200;
+  cursor: pointer;
+}
 .main-img.details {
   block-size: 60vw;
   margin: 1vh;
-  transform: scale(1);
-  transition: 0.2s ease-in-out;
 }
-.main-img.details:hover {
-  transform: scale(1.5);
-}
+
 .small-img.details {
-  cursor: zoom-in;
   border-radius: 0.5vh;
   height: 15vh;
   margin: 2vh;

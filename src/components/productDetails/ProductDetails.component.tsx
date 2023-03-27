@@ -17,6 +17,7 @@ type ProductInfo = {
 };
 
 export const Details = (props: Props): JSX.Element => {
+  const [mainImgArrayIndex, setMainImgArrayIndex] = useState(0);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -29,11 +30,23 @@ export const Details = (props: Props): JSX.Element => {
   const [arrayIndex, setArrayIndex] = useState(id - 1);
   const productInfo: any = props.dataArray?.[arrayIndex];
   const productImages = productInfo?.images;
-  const [mainImg, setMainImg] = useState(productInfo?.images[0]);
 
-  const makeItMainImg = (img: string) => {
-    setMainImg(img);
+  const slideshow = (mainImgArrayIndex: number) => {
+    console.log(productInfo?.images.length, mainImgArrayIndex);
+    if (mainImgArrayIndex > productInfo?.images.length - 1)
+      mainImgArrayIndex = 0;
+    if (mainImgArrayIndex < 0)
+      mainImgArrayIndex = productInfo?.images.length - 1;
+    setMainImgArrayIndex(mainImgArrayIndex);
   };
+
+  const onNext = () => {
+    slideshow(mainImgArrayIndex + 1);
+  };
+  const onPrevious = () => {
+    slideshow(mainImgArrayIndex - 1);
+  };
+
   const smallImg: JSX.Element[] = productImages?.map(
     (img: string, index: number) => (
       <img
@@ -41,7 +54,6 @@ export const Details = (props: Props): JSX.Element => {
         key={index}
         src={img}
         alt={`${productInfo?.title} image ${index}`}
-        onClick={() => makeItMainImg(img)}
       />
     )
   );
@@ -51,11 +63,20 @@ export const Details = (props: Props): JSX.Element => {
       <h2 className="details h2"> {productInfo?.title}</h2>
 
       <div className="img details">
-        <img
-          className="main-img details"
-          src={mainImg || productInfo?.images[0]}
-          alt={productInfo?.title}
-        />
+        <div className="slideshow-container">
+          <div className="img arrow previous" onClick={onPrevious}>
+            ❮
+          </div>
+          <img
+            className="main-img details"
+            src={productInfo?.images[mainImgArrayIndex]}
+            alt={productInfo?.title}
+          />
+          <div className="img arrow next" onClick={onNext}>
+            ❯
+          </div>
+        </div>
+
         <div> {smallImg}</div>
       </div>
 
