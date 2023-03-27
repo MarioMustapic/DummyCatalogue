@@ -45,7 +45,7 @@ const Pagination = (props: any) => {
         onClick={onPrevious}
         key={"previous"}
       >
-        <div className="arrow left" />
+        ❮
       </li>
       {paginationRange.map((pageNumber: any, index: number) => {
         if (pageNumber === DOTS) {
@@ -78,7 +78,7 @@ const Pagination = (props: any) => {
         onClick={onNext}
         key={"next"}
       >
-        <div className="arrow right" />
+        ❯
       </li>
     </ul>
   );
