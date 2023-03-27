@@ -67,11 +67,14 @@ export const Details = (props: Props): JSX.Element => {
           <div className="img arrow previous" onClick={onPrevious}>
             ❮
           </div>
-          <img
-            className="main-img details"
-            src={productInfo?.images[mainImgArrayIndex]}
-            alt={productInfo?.title}
-          />
+          <div className="main-container">
+            <img
+              className="main-img details"
+              src={productInfo?.images[mainImgArrayIndex]}
+              alt={productInfo?.title}
+            />
+          </div>
+
           <div className="img arrow next" onClick={onNext}>
             ❯
           </div>

@@ -29,6 +29,9 @@
   font-weight: 200;
   cursor: pointer;
 }
+.main-container {
+  min-width: min(50vh, 50vw);
+}
 .main-img.details {
   block-size: 60vw;
   margin: 1vh;
